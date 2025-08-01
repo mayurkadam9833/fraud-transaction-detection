@@ -1,0 +1,13 @@
+pandas 
+numpy 
+matplotlib 
+seaborn 
+scikit-learn 
+pyYAML
+notebook
+python-box
+ensure 
+types-pyYAML
+streamlit
+-e .
+
