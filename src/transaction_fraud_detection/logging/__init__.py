@@ -2,7 +2,7 @@ import os
 import sys 
 import logging 
 
-log_str="[%(asctime)s : %(modulename)s : %(levelname)s : %(message)s]"
+log_str="[%(asctime)s : %(levelname)s : %(module)s : %(message)s]"
 
 curr_dir=os.path.abspath(os.path.dirname(__file__))
 log_dir=os.path.join(curr_dir,"logs")
