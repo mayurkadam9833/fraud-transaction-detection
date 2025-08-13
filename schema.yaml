@@ -1,5 +1,5 @@
-COLUMNS: 
- step: int64
+COLUMNS:
+ step: int64  
  type: object 
  amount: float64
  nameOrig: object 
@@ -8,6 +8,4 @@ COLUMNS:
  nameDest: object 
  oldbalanceDest: float64
  newbalanceDest: float64
-
-TARGET_COLUMN:
- isFraud: int64 
+ isFraud: int64  
