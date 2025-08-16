@@ -49,7 +49,7 @@ class ConfigManager:
 
         create_directories([config.root_dir])
 
-        data_transformation_config=DataIngestionConfig(
+        data_transformation_config=DataTransformationConfig(
             root_dir=config.root_dir,
             data_path=config.data_path
         )
