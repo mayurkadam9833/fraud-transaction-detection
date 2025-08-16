@@ -1,6 +1,6 @@
 from src.transaction_fraud_detection.utils.common import read_yaml,create_directories
 from src.transaction_fraud_detection.constants import *
-from src.transaction_fraud_detection.entity.config_entity import DataIngestionConfig,DataValidationConfig
+from src.transaction_fraud_detection.entity.config_entity import DataIngestionConfig,DataValidationConfig,DataTransformationConfig
 
 
     
@@ -43,3 +43,14 @@ class ConfigManager:
             schema=schema
         )
         return data_validation_config
+    
+    def get_data_tranformation_config(self)->DataTransformationConfig:
+        config=self.config.data_transformation
+
+        create_directories([config.root_dir])
+
+        data_transformation_config=DataIngestionConfig(
+            root_dir=config.root_dir,
+            data_path=config.data_path
+        )
+        return data_transformation_config
