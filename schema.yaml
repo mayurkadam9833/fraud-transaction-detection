@@ -8,4 +8,5 @@ COLUMNS:
  nameDest: object 
  oldbalanceDest: float64
  newbalanceDest: float64
+TARGET_COLUMN:
  isFraud: int64  

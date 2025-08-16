@@ -14,7 +14,8 @@ class DataValidationPipeline:
         config=ConfigManager()
         data_validation_config=config.get_data_validation_config()
         data_validation=DataValidation(config=data_validation_config)
-        data_validation.validation()
+        data_validation.schema_validation()
+        data_validation.data_type_validation()
 
 if __name__ == "__main__":
     try:
