@@ -1,6 +1,7 @@
 from src.transaction_fraud_detection.pipeline.stage_01_data_ingestion import DataIngestionPipeline
 from src.transaction_fraud_detection.pipeline.stage_02_data_validation import DataValidationPipeline
 from src.transaction_fraud_detection.pipeline.stage_03_data_transformation import DataTransformationPipeline
+from src.transaction_fraud_detection.pipeline.stage_04_model_training import ModelTrainingPipeline
 from src.transaction_fraud_detection.logging import logger
 
 stage_one="Data Ingestion"
@@ -34,7 +35,19 @@ if __name__ == "__main__":
         logger.info(f"<<<< stage: {stage_three} started")
         obj=DataTransformationPipeline()
         obj.main()
-        logger.info(f"<<<< stage: {stage_three} started")
+        logger.info(f"stage: {stage_three} completed >>>>")
     except Exception as e:
+        logger.info(e)
+        raise e
+    
+stage_four="Model Training"
+
+if __name__=="__main__":
+    try: 
+        logger.info(f"<<<< stage: {stage_four} started")
+        obj=ModelTrainingPipeline()
+        obj.main()
+        logger.info(f"stage: {stage_four} completed >>>>")
+    except Exception as e: 
         logger.info(e)
         raise e

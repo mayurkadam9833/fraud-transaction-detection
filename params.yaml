@@ -1,1 +1,9 @@
-key: value
+XGBClassifier:
+ subsample: 0.8,
+ reg_lambda: 1,
+ reg_alpha: 0.1,
+ n_estimators: 150,
+ min_child_weight: 1,
+ max_depth: 30,
+ learning_rate: 0.02,
+ colsample_bytree: 0.6
