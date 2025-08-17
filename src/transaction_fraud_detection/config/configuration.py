@@ -1,6 +1,6 @@
 from src.transaction_fraud_detection.utils.common import read_yaml,create_directories
 from src.transaction_fraud_detection.constants import *
-from src.transaction_fraud_detection.entity.config_entity import DataIngestionConfig,DataValidationConfig,DataTransformationConfig,ModelTrainerConfig
+from src.transaction_fraud_detection.entity.config_entity import DataIngestionConfig,DataValidationConfig,DataTransformationConfig,ModelTrainerConfig,ModelEvaluationConfig
 
 
     
@@ -77,3 +77,19 @@ class ConfigManager:
             colsample_bytree=params.colsample_bytree,
             target_column=list(schema.keys())[0])
         return model_trainer_config
+    
+    def get_model_evaluation_config(self)->ModelEvaluationConfig:
+        config=self.config.model_evaluation
+        schema=self.schema.TARGET_COLUMN
+        params=self.params.XGBClassifier
+
+        create_directories([config.root_dir])
+
+        model_evaluation_config=ModelEvaluationConfig(
+            root_dir=config.root_dir,
+            test_data_path=config.test_data_path,
+            model_path=config.model_path,
+            metric_file_name=config.metric_file_name,
+            all_params=params,
+            target_column=list(schema.keys())[0])
+        return model_evaluation_config

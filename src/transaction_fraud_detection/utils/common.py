@@ -35,3 +35,10 @@ def create_directories(path_to_directories=list,verbose=True):
 def get_size(file):
     size_in_kb=round(os.path.getsize(file)/1024)
     return f"File size : {size_in_kb} kb"
+
+@ensure_annotations
+def save_json(path:Path,data:dict):
+    with open(path,"w")as f:
+        json.dump(data,f,indent=4)
+
+    logger.info(f"json file saved at: {path}")
