@@ -1,0 +1,17 @@
+{
+    "accuracy score": 0.9984,
+    "confusion matix": [
+        [
+            59833,
+            81
+        ],
+        [
+            15,
+            71
+        ]
+    ],
+    "precision score": 0.46710526315789475,
+    "recall score": 0.8255813953488372,
+    "f1-score": 0.5966386554621849,
+    "roc auc score": 0.9121147287856781
+}

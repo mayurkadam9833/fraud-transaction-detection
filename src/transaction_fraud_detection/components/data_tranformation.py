@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import joblib
 from src.transaction_fraud_detection.logging import logger
 from src.transaction_fraud_detection.config.configuration import ConfigManager
 from src.transaction_fraud_detection.entity.config_entity import DataTransformationConfig
@@ -28,8 +29,8 @@ class DataTranformation:
         data=self.drop_columns()
         encode_data=pd.DataFrame(self.encode.fit_transform(data[["type"]]),columns=self.encode.get_feature_names_out())
         data=pd.concat([data.drop(["type"],axis=1),encode_data],axis=1)
+        joblib.dump(self.encode,os.path.join(self.config.root_dir,"encode.joblib"))
         return data
-
     
     def split_data(self):
         try:
@@ -43,6 +44,7 @@ class DataTranformation:
             sample_train_x,sample_train_y=self.sampling.fit_resample(train_x,train_y)
             scale_train_x=self.scale.fit_transform(sample_train_x)
             scale_test_x=self.scale.transform(test_x)
+            joblib.dump(self.scale,os.path.join(self.config.root_dir,"scale.joblib"))
 
             train_data = pd.concat([pd.DataFrame(scale_train_x).reset_index(drop=True),pd.Series(sample_train_y).reset_index(drop=True)],axis=1)
             test_data=pd.concat([pd.DataFrame(scale_test_x).reset_index(drop=True),pd.Series(test_y).reset_index(drop=True)],axis=1)
