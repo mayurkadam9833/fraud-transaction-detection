@@ -1,6 +1,6 @@
 from src.fraud_transaction_detection.constants import *
 from src.fraud_transaction_detection.utils.common import read_yaml,create_dir
-from src.fraud_transaction_detection.entity.config_entity import DataIngestionConfig
+from src.fraud_transaction_detection.entity.config_entity import DataIngestionConfig,DataValidationConfig
 
 
 """
@@ -38,3 +38,9 @@ class ConfigManager:
         )
 
         return data_ingsetion_config
+    
+    def get_data_validation_config(self)-> DataValidationConfig:
+        config=self.config.data_validation
+        all_schema=self.schema.COLUMNS
+        
+        

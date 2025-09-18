@@ -21,4 +21,3 @@ class DataValidationConfig:
     unzip_data: Path
     STATUS_FILE: Path
     all_columns: dict
-    target_col: str
