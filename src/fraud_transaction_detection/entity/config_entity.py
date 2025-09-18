@@ -22,10 +22,25 @@ class DataValidationConfig:
     STATUS_FILE: Path
     all_schema: dict
 
+
+
 """DataTransformationConfig class will return
-dataset data transformation folder path,dataset path,target column"""
+data transformation folder path,dataset path,target column for data transformation"""
 @dataclass(frozen=True)
 class DataTransformationConfig:
     root_dir: Path
     data_path: Path 
     target_col: str
+
+
+
+"""ModelTrainerConfig class will return
+model trainer folder path,traindata path,target column,model path,parameters for model trainer"""
+@dataclass(frozen=True)
+class ModelTrainerConfig:
+    root_dir: Path
+    train_data: Path
+    model_name: str 
+    kernel: str 
+    degree: 3
+    target_col:str
