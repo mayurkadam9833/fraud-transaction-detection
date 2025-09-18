@@ -1,4 +1,5 @@
 import os
+import joblib
 import pandas as pd 
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import StandardScaler
@@ -32,6 +33,9 @@ class DataTransformation:
         data=pd.concat([data.drop(["Transaction_Type"],axis=1),pd.DataFrame(self.encode_Transaction_Type.fit_transform(data[["Transaction_Type"]]),columns=self.encode_Transaction_Type.get_feature_names_out())],axis=1)
         data=pd.concat([data.drop(["Device_Type"],axis=1),pd.DataFrame(self.encode_Device_Type.fit_transform(data[["Device_Type"]]),columns=self.encode_Device_Type.get_feature_names_out())],axis=1)
         data=pd.concat([data.drop(["Card_Type"],axis=1),pd.DataFrame(self.encode_Card_Type.fit_transform(data[["Card_Type"]]),columns=self.encode_Card_Type.get_feature_names_out())],axis=1)
+        joblib.dump(self.encode_Transaction_Type,(self.config.root_dir,"encode_Transaction_Type.joblib"))
+        joblib.dump(self.encode_Device_Type,os.path.join(self.config.root_dir,"encode_Device_Type.joblib"))
+        joblib.dump(self.encode_Card_Type,os.path.join(self.config.root_dir,"encode_Card_Type.joblib"))
         return data
     
     # method to perform oversampling, scale and split data into train and test
@@ -51,7 +55,8 @@ class DataTransformation:
             #scale data by using StandardScaler
             scale_train_x=self.scale.fit_transform(sampled_train_x)
             scale_test_x=self.scale.transform(test_x)
-
+            joblib.dump(self.scale,os.path.join(self.config.root_dir,"scale.joblib"))
+            
             train_data=pd.concat([pd.DataFrame(scale_train_x).reset_index(drop=True),sampled_train_y.reset_index(drop=True)],axis=1)
             test_data=pd.concat([pd.DataFrame(scale_test_x).reset_index(drop=True),test_y],axis=1)
 
