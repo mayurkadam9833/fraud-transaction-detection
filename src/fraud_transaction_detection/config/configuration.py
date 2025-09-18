@@ -52,7 +52,7 @@ class ConfigManager:
             root_dir=config.root_dir,
             unzip_data=config.unzip_data,
             STATUS_FILE=config.STATUS_FILE,
-            all_columns=schema
+            all_schema=schema
         )
 
         return data_validation_config
