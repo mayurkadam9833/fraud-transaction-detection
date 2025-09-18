@@ -39,8 +39,20 @@ class ConfigManager:
 
         return data_ingsetion_config
     
+    # method to get data validation config object
     def get_data_validation_config(self)-> DataValidationConfig:
         config=self.config.data_validation
-        all_schema=self.schema.COLUMNS
-        
-        
+        schema=self.schema.COLUMNS
+
+        # create data validation folder
+        create_dir([config.root_dir])
+
+        # prepare and return DataValidationConfig dataclass
+        data_validation_config=DataValidationConfig(
+            root_dir=config.root_dir,
+            unzip_data=config.unzip_data,
+            STATUS_FILE=config.STATUS_FILE,
+            all_columns=schema
+        )
+
+        return data_validation_config
