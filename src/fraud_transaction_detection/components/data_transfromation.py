@@ -33,7 +33,7 @@ class DataTransformation:
         data=pd.concat([data.drop(["Transaction_Type"],axis=1),pd.DataFrame(self.encode_Transaction_Type.fit_transform(data[["Transaction_Type"]]),columns=self.encode_Transaction_Type.get_feature_names_out())],axis=1)
         data=pd.concat([data.drop(["Device_Type"],axis=1),pd.DataFrame(self.encode_Device_Type.fit_transform(data[["Device_Type"]]),columns=self.encode_Device_Type.get_feature_names_out())],axis=1)
         data=pd.concat([data.drop(["Card_Type"],axis=1),pd.DataFrame(self.encode_Card_Type.fit_transform(data[["Card_Type"]]),columns=self.encode_Card_Type.get_feature_names_out())],axis=1)
-        joblib.dump(self.encode_Transaction_Type,(self.config.root_dir,"encode_Transaction_Type.joblib"))
+        joblib.dump(self.encode_Transaction_Type,os.path.join(self.config.root_dir,"encode_Transaction_Type.joblib"))
         joblib.dump(self.encode_Device_Type,os.path.join(self.config.root_dir,"encode_Device_Type.joblib"))
         joblib.dump(self.encode_Card_Type,os.path.join(self.config.root_dir,"encode_Card_Type.joblib"))
         return data
