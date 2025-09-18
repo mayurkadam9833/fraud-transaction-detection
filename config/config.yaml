@@ -5,3 +5,8 @@ data_ingestion:
  source_url: https://github.com/mayurkadam9833/Datasets/raw/refs/heads/main/fraud_transaction_dataset.zip   # source url for downloading data
  local_data_file: artifacts/data_ingestion/fraud_transaction_dataset.zip                                    # download file path
  unzip_dir: artifacts/data_ingestion                                                                        # extract file path
+
+data_validation:
+ root_dir: artifacts/data_validation                                                                        # data validation folder
+ unzip_data: artifacts/data_ingestion/fraud_transaction_dataset.csv                                         # dataset path
+ STATUS_FILE: artifacts/data_validation/validation_status.txt                                               # validation file path
