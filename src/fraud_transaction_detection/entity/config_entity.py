@@ -42,5 +42,5 @@ class ModelTrainerConfig:
     train_data: Path
     model_name: str 
     kernel: str 
-    degree: 3
+    degree: int
     target_col:str

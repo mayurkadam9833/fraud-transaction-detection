@@ -1,6 +1,6 @@
 from src.fraud_transaction_detection.constants import *
 from src.fraud_transaction_detection.utils.common import read_yaml,create_dir
-from src.fraud_transaction_detection.entity.config_entity import DataIngestionConfig,DataValidationConfig,DataTransformationConfig
+from src.fraud_transaction_detection.entity.config_entity import DataIngestionConfig,DataValidationConfig,DataTransformationConfig,ModelTrainerConfig
 
 
 """
@@ -72,3 +72,23 @@ class ConfigManager:
             target_col=list(schema.keys())[0]
         )
         return data_transformation_config
+    
+    # method to get model trainer config object
+    def get_model_trainer_config(self)-> ModelTrainerConfig:
+        config=self.config.model_trainer
+        schema=self.schema.TARGET_COLUMN 
+        params=self.params.SVC
+
+        # create model trainer folder
+        create_dir([config.root_dir])
+
+        # prepare and return ModelTrainerConfig dataclass
+        model_trainer_config=ModelTrainerConfig(
+            root_dir=config.root_dir,
+            train_data=config.train_data,
+            model_name=config.model_name,
+            kernel=params.kernel,
+            degree=params.degree,
+            target_col=list(schema.keys())[0]
+        )
+        return model_trainer_config
