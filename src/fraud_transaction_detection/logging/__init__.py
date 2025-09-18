@@ -3,7 +3,7 @@ import sys
 import logging
 
 # Define logging format (timestamp : loglevel module message)
-log_str="[%(asctime)s : %(levelname)s : %(module)s : %(message)s ]"
+log_str="[%(asctime)s : %(levelname)s : %(module)s : %(message)s]"
 
 # Get current directory path where this file is located
 curr_dir=os.path.abspath(os.path.dirname(__file__))
