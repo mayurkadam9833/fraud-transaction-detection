@@ -1,0 +1,23 @@
+COLUMNS:
+ Transaction_ID               : object 
+ User_ID                      : object 
+ Transaction_Amount           : float64
+ Transaction_Type             : object 
+ Timestamp                    : object 
+ Account_Balance              : float64
+ Device_Type                  : object 
+ Location                     : object 
+ Merchant_Category            : object 
+ IP_Address_Flag              : int64  
+ Previous_Fraudulent_Activity : int64  
+ Daily_Transaction_Count      : int64  
+ Avg_Transaction_Amount_7d    : float64
+ Failed_Transaction_Count_7d  : int64  
+ Card_Type                    : object 
+ Card_Age                     : int64  
+ Transaction_Distance         : float64
+ Authentication_Method        : object 
+ Risk_Score                   : float64
+ Is_Weekend                   : int64  
+TARGET_COLUMN:
+ Fraud_Label                  : int64  
