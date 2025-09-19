@@ -40,7 +40,7 @@ def get_size(file):
 
 # function to save dict to json file
 @ensure_annotations 
-def save_json(path:Path,file=dict):
+def save_json(path:Path,data=dict):
     with open(path,"w")as file:
-        json.dump(file,indent=4) 
+        json.dump(data,file,indent=4) 
         logger.info("json file saved sucessfully")
