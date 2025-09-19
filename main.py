@@ -3,7 +3,7 @@ from src.fraud_transaction_detection.pipeline.stage_01_data_ingestion_pipeline i
 from src.fraud_transaction_detection.pipeline.stage_02_data_validation_pipeline import DataValidationPipeline
 from src.fraud_transaction_detection.pipeline.stage_03_data_transformation_pipeline import DataTransformationPipeline
 from src.fraud_transaction_detection.pipeline.stage_04_model_trainer_pipeline import ModelTrainerPipeline
-
+from src.fraud_transaction_detection.pipeline.stage_05_model_evaluation import ModelEvaluationPipeline
 # data ingestion pipeline execution
 stage_one="Data Ingestion"
 
@@ -55,6 +55,20 @@ if __name__ == "__main__":
         obj=ModelTrainerPipeline()
         obj.main()
         logger.info(f"<<<< stage:{stage_four} completed >>>>")
+
+    except Exception as e:
+        logger.info(e)
+        raise e
+    
+# Model Evalauation pipeline execution
+stage_five="Model Evalauation"
+
+if __name__ == "__main__":
+    try:
+        logger.info(f"<<<< stage:{stage_five} started >>>>")
+        obj=ModelEvaluationPipeline()
+        obj.main()
+        logger.info(f"<<<< stage:{stage_five} completed >>>>")
 
     except Exception as e:
         logger.info(e)
