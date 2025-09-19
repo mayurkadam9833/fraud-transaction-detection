@@ -27,7 +27,8 @@ class ModelTrainer:
             model=self.model.fit(train_x,train_y)
 
             # save model at defined path
-            joblib.dump(model,os.path.join(self.config.root_dir,self.config.model_name))
+            model_path=os.path.join(self.config.root_dir,"model.joblib")
+            joblib.dump(model,model_path)
 
             logger.info(f"model train sucessfully")
 
