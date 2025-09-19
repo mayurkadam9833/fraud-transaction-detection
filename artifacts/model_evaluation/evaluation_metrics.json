@@ -1,0 +1,8 @@
+{
+    "accuracy score": 0.9817,
+    "confusion matrix": "[[6588  177]\n [   6 3229]]",
+    "precision score": 0.948032883147387,
+    "recall score": 0.998145285935085,
+    "f1-score": 0.9724439090498419,
+    "roc auc score": 0.9859906030562344
+}
