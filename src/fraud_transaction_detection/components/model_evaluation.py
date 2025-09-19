@@ -37,7 +37,7 @@ class ModelEvaluation:
             test_y=data[self.config.target_col]
 
             # make prediction on test data
-            prediction=self.model.predict(test_x,test_y)
+            prediction=self.model.predict(test_x)
 
             # get metrics score for test data
             (acc,cf,pr,rc,f1,roc)=self.get_metrics(test_y,prediction)
