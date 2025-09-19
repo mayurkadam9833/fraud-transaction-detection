@@ -22,6 +22,6 @@ model_trainer:
 
 model_evaluation:
  root_dir: artifacts/model_evaluation                                                                       # model evaluation folder
- test_data: artifacts/model_evaluation/test_data.csv                                                        # test data path
+ test_data: artifacts/data_transformation/test_data.csv                                                        # test data path
  model_path: artifacts/model_trainer/model.joblib                                                           # train model path
  metrics_file: artifacts/model_evaluation/evaluation_metrics.json                                           # evalution metrics path
