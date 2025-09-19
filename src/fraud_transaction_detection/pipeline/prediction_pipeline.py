@@ -23,7 +23,7 @@ class PredictionPipeline:
     
     # method for prediction
     def prediction(self,data:pd.DataFrame):
-        preprocess_data=self.preprocessing()
+        preprocess_data=self.preprocessing(data)
 
         prediction=self.model.predict(preprocess_data)
 
