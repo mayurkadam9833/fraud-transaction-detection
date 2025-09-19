@@ -43,7 +43,7 @@ class ModelEvaluation:
             (acc,cf,pr,rc,f1,roc)=self.get_metrics(test_y,prediction)
 
             # create dict of metrics
-            scores={"accuracy score":acc,"confusion matrix":cf.tolist(),"precision score":pr,"recall score":rc,"f1-score":f1,"roc auc score":roc}
+            scores={"accuracy score":acc,"confusion matrix":np.array2string(cf),"precision score":pr,"recall score":rc,"f1-score":f1,"roc auc score":roc}
 
             # save metrics as json file to defined path
             save_json(Path(self.config.metrics_file),scores)
