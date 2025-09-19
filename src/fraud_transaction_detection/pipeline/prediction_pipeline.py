@@ -7,7 +7,7 @@ from sklearn.preprocessing import OneHotEncoder
 method of prediction"""
 class PredictionPipeline:
     def __init__(self):
-        self.self.encode_Transaction_Type=joblib.load(Path("artifacts/data_transformation/encode_Transaction_Type.joblib"))
+        self.encode_Transaction_Type=joblib.load(Path("artifacts/data_transformation/encode_Transaction_Type.joblib"))
         self.encode_Device_Type=joblib.load(Path("artifacts/data_transformation/encode_Device_Type.joblib"))
         self.encode_Card_Type=joblib.load(Path("artifacts/data_transformation/encode_Card_Type.joblib"))
         self.scale=joblib.load(Path("artifacts/data_transformation/scale.joblib"))
