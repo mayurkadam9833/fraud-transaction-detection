@@ -59,7 +59,7 @@ Card_Type=st.sidebar.selectbox(label="Card_Type",options=['Amex', 'Mastercard', 
 Device_Type=st.sidebar.selectbox(label="Device_Type",options=['Laptop', 'Mobile', 'Tablet'])
 
 # button for prediction
-if st.button("check"):
+if st.button("Check Transaction"):
     # create data frame of input data
     data=pd.DataFrame({
         "Failed_Transaction_Count_7d":[Failed_Transaction_Count_7d],
