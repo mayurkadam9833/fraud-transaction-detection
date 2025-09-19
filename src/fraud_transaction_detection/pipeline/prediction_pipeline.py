@@ -11,7 +11,7 @@ class PredictionPipeline:
         self.encode_Device_Type=joblib.load(Path("artifacts/data_transformation/encode_Device_Type.joblib"))
         self.encode_Card_Type=joblib.load(Path("artifacts/data_transformation/encode_Card_Type.joblib"))
         self.scale=joblib.load(Path("artifacts/data_transformation/scale.joblib"))
-        self.model=joblib.load(Path("artifacts/data_transformation/model.joblib"))
+        self.model=joblib.load(Path("artifacts/model_trainer/model.joblib"))
 
     # method to preprocess data
     def preprocessing(self,data:pd.DataFrame):
