@@ -44,3 +44,14 @@ class ModelTrainerConfig:
     kernel: str 
     degree: int
     target_col:str
+
+
+"""ModelEvaluationConfig class will return
+model Evaluation folder path,testdata path,target column,model path for model Evaluation"""
+@dataclass(frozen=True)
+class ModelEvaluationConfig:
+    root_dir: Path 
+    test_data: Path
+    model_path: Path
+    metrics_file: Path
+    target_col:str
