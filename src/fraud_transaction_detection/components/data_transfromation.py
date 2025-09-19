@@ -58,7 +58,7 @@ class DataTransformation:
             joblib.dump(self.scale,os.path.join(self.config.root_dir,"scale.joblib"))
             
             train_data=pd.concat([pd.DataFrame(scale_train_x).reset_index(drop=True),sampled_train_y.reset_index(drop=True)],axis=1)
-            test_data=pd.concat([pd.DataFrame(scale_test_x).reset_index(drop=True),test_y],axis=1)
+            test_data=pd.concat([pd.DataFrame(scale_test_x).reset_index(drop=True),pd.Series(test_y).reset_index(drop=True)],axis=1)
 
             # saved split data to defined path 
             train_data.to_csv(os.path.join(self.config.root_dir,"train_data.csv"),index=False)
