@@ -24,7 +24,7 @@ def get_background(image_file):
     st.markdown(css, unsafe_allow_html=True)
 
 # Setting background image
-get_background(Path(".streamlit\\background.png"))
+get_background(Path(".streamlit") / "background.png")
 
 # App title 
 st.title("`Fraud Detection Tool`")
