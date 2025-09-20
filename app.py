@@ -2,6 +2,7 @@ import joblib
 import base64
 import pandas as pd 
 import streamlit as st
+from pathlib import Path
 from src.fraud_transaction_detection.pipeline.prediction_pipeline import PredictionPipeline
 
 # Function to set background image using base64 encoding
@@ -23,7 +24,7 @@ def get_background(image_file):
     st.markdown(css, unsafe_allow_html=True)
 
 # Setting background image
-get_background(".streamlit\\background.png")
+get_background(Path(".streamlit\\background.png"))
 
 # App title 
 st.title("`Fraud Detection Tool`")
