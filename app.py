@@ -27,7 +27,7 @@ def get_background(image_file):
 get_background(Path(".streamlit") / "background.png")
 
 # App title 
-st.title("`Fraud Detection Tool`")
+st.title("Fraud Detection Tool")
 
 # Description in Markdown
 st.markdown("""
